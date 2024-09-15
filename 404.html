@@ -12,7 +12,7 @@
     <!-- Google Fonts (Roboto for Clean, Consistent Typography) -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Main Styles for the Error Page -->
+    <!-- Main Styles with Mobile Support -->
     <style>
         * {
             margin: 0;
@@ -32,11 +32,12 @@
             min-height: 100vh; /* Ensure full-screen height */
             text-align: center;
             overflow: hidden;
+            padding: 0 15px; /* Add padding for mobile edge cases */
         }
 
         /* Header Section for Error Message */
         header {
-            margin-bottom: 50px; /* Space below the header */
+            margin-bottom: 40px; /* Space below the header */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -61,7 +62,7 @@
         }
 
         header h1 {
-            font-size: 4rem; /* Large, bold error message */
+            font-size: 3.5rem; /* Adjusted size for better mobile fit */
             color: #53fc18; /* Kick Green for branding */
         }
 
@@ -71,7 +72,7 @@
         }
 
         main h2 {
-            font-size: 2rem;
+            font-size: 1.7rem; /* Adjust font size for mobile */
             margin-bottom: 20px;
             color: #cccccc; /* Light grey for secondary emphasis */
         }
@@ -85,7 +86,7 @@
         /* Button to Redirect User Back to Livestream */
         .button {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 12px 30px; /* Adjust padding for mobile */
             background-color: #53fc18; /* Kick Green */
             color: black;
             text-decoration: none;
@@ -100,9 +101,9 @@
 
         /* Footer Styling */
         footer {
-            margin-top: 40px; /* Space above footer */
+            margin-top: 30px; /* Reduced space for mobile */
             text-align: center;
-            font-size: 0.9rem; /* Smaller footer text */
+            font-size: 0.8rem; /* Smaller footer text */
             color: #888; /* Soft grey to blend into the background */
         }
 
@@ -133,6 +134,30 @@
             height: 2px;
             background: #ffffff; /* White stars */
             border-radius: 50%; /* Circular stars */
+        }
+
+        /* Responsive Styling for Mobile Devices */
+        @media (max-width: 768px) {
+            header img {
+                width: 180px; /* Scale down the logo for mobile */
+            }
+
+            header h1 {
+                font-size: 3rem; /* Adjust title size for mobile */
+            }
+
+            main h2 {
+                font-size: 1.5rem; /* Slightly smaller for mobile */
+            }
+
+            .button {
+                padding: 10px 25px; /* Adjust padding for better fit on mobile */
+                font-size: 1rem; /* Smaller button text */
+            }
+
+            footer {
+                font-size: 0.75rem; /* Smaller footer text for mobile */
+            }
         }
     </style>
 </head>

@@ -12,7 +12,7 @@
     <!-- Google Fonts (Roboto for sleek typography) -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Main Styles for a Professional and Clean Look -->
+    <!-- Main Styles with Mobile Support -->
     <style>
         * {
             margin: 0;
@@ -32,6 +32,7 @@
             min-height: 100vh; /* Ensure full-screen height */
             text-align: center;
             overflow: hidden; /* Prevent unwanted scrollbars */
+            padding: 0 15px; /* Add padding for mobile edge cases */
         }
 
         /* Header with Logo Animation */
@@ -62,24 +63,24 @@
 
         /* Styling for the Sponsor Message (Professional, Balanced Look) */
         #sponsor-message {
-            font-size: 1.6rem; /* Slightly smaller text for subtlety */
+            font-size: 1.5rem; /* Adjusted size for mobile */
             color: #e0e0e0; /* Softer grey for better cohesion with background */
-            margin-bottom: 50px; /* Space below the message to separate it from buttons */
+            margin-bottom: 40px; /* Spacing below the message */
             font-weight: 400; /* Medium weight for cleaner look */
         }
 
         /* Button Styling for Sponsors */
         .button {
             display: inline-block;
-            padding: 15px 35px; /* Balanced padding for a professional button size */
+            padding: 12px 30px; /* Slightly smaller padding for mobile */
             background-color: #53fc18; /* Kick Green to match brand colors */
             color: #000; /* Black text for strong contrast */
             font-weight: bold;
             text-decoration: none; /* Remove underline */
             border-radius: 5px; /* Slightly rounded edges for modern design */
             transition: background-color 0.3s ease; /* Smooth transition effect */
-            margin: 10px; /* Spacing between buttons */
-            font-size: 1.2rem; /* Legible size without being too large */
+            margin: 8px; /* Reduced margin for better button spacing on mobile */
+            font-size: 1.1rem; /* Legible size without being too large */
         }
 
         /* Hover Effect for Buttons for User Interaction */
@@ -89,9 +90,9 @@
 
         /* Footer Styling for Consistent Design at the Bottom */
         footer {
-            margin-top: 40px; /* Space above footer */
+            margin-top: 30px; /* Reduced space for mobile */
             text-align: center;
-            font-size: 0.9rem; /* Smaller footer text for less emphasis */
+            font-size: 0.8rem; /* Smaller footer text for less emphasis */
             color: #888; /* Grey to blend with the overall design */
         }
 
@@ -123,6 +124,26 @@
             height: 2px;
             background: #ffffff; /* White stars for contrast */
             border-radius: 50%; /* Circular stars */
+        }
+
+        /* Responsive Styling for Mobile Devices */
+        @media (max-width: 768px) {
+            header img {
+                width: 180px; /* Scale logo down for mobile */
+            }
+
+            #sponsor-message {
+                font-size: 1.3rem; /* Smaller font for mobile */
+            }
+
+            .button {
+                font-size: 1rem; /* Slightly smaller button text for mobile */
+                padding: 10px 25px; /* Reduce padding for better fit on mobile */
+            }
+
+            footer {
+                font-size: 0.75rem; /* Slightly smaller footer text on mobile */
+            }
         }
     </style>
 </head>
