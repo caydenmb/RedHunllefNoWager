@@ -12,7 +12,7 @@
     <!-- Google Fonts (Roboto for Clean, Consistent Typography) -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Main Styles with Mobile Support -->
+    <!-- Main Styles -->
     <style>
         * {
             margin: 0;
@@ -26,21 +26,26 @@
             background-color: #3a3a3a; /* Dark grey background */
             color: #f0f0f0; /* Light grey text for contrast */
             display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full-height */
+            text-align: center;
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 15px; /* Padding for mobile screens */
+        }
+
+        /* Container to wrap all content and center it vertically */
+        .container {
+            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Ensure full-screen height */
-            text-align: center;
-            overflow: hidden;
-            padding: 0 15px; /* Add padding for mobile edge cases */
+            min-height: 100vh; /* Ensure full-height centering */
         }
 
         /* Header Section for Error Message */
         header {
             margin-bottom: 40px; /* Space below the header */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         /* Bounce Animation to Match Main Page */
@@ -86,13 +91,16 @@
         /* Button to Redirect User Back to Livestream */
         .button {
             display: inline-block;
-            padding: 12px 30px; /* Adjust padding for mobile */
+            padding: 12px 25px; /* Adjust padding to keep the text in one line */
             background-color: #53fc18; /* Kick Green */
             color: black;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            max-width: 240px; /* Increased width to ensure text fits */
+            white-space: nowrap; /* Ensure text doesn't wrap to a new line */
+            font-size: 1.1rem; /* Slightly smaller font for button text */
         }
 
         .button:hover {
@@ -101,14 +109,14 @@
 
         /* Footer Styling */
         footer {
-            margin-top: 30px; /* Reduced space for mobile */
+            margin-top: 30px;
             text-align: center;
             font-size: 0.8rem; /* Smaller footer text */
-            color: #888; /* Soft grey to blend into the background */
+            color: #888;
         }
 
         footer a {
-            color: #53fc18; /* Kick Green for links */
+            color: #53fc18; /* Kick Green */
             text-decoration: none;
         }
 
@@ -136,10 +144,23 @@
             border-radius: 50%; /* Circular stars */
         }
 
-        /* Responsive Styling for Mobile Devices */
+        /* Star Drift Animation for Mobile */
+        @keyframes drift {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(50px, 100px) scale(1.2); /* Slight scale and movement */
+            }
+            100% {
+                transform: translate(-50px, -100px) scale(1);
+            }
+        }
+
+        /* Mobile-Specific Adjustments */
         @media (max-width: 768px) {
             header img {
-                width: 180px; /* Scale down the logo for mobile */
+                width: 180px; /* Adjusted logo size for mobile */
             }
 
             header h1 {
@@ -151,43 +172,53 @@
             }
 
             .button {
-                padding: 10px 25px; /* Adjust padding for better fit on mobile */
-                font-size: 1rem; /* Smaller button text */
+                padding: 10px 20px; /* Adjust padding for better fit */
+                font-size: 1rem; /* Slightly smaller button text */
+                max-width: 100%; /* Full-width buttons on mobile */
+                white-space: nowrap; /* Ensure text doesn't wrap */
             }
 
             footer {
                 font-size: 0.75rem; /* Smaller footer text for mobile */
+            }
+
+            /* On mobile, stars will automatically drift */
+            .star {
+                animation: drift 30s infinite linear;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Star Background for Consistent Design -->
+    <!-- Starry Background for Consistent Design -->
     <div id="stars"></div>
 
-    <!-- Header Section for the 404 Error -->
-    <header>
-        <a href="https://kick.com/redhunllef">
-            <img src="redlogo.png" alt="Redhunllef Logo">
-        </a>
-        <h1>404</h1>
-    </header>
+    <!-- Container for centering content -->
+    <div class="container">
+        <!-- Header Section for the 404 Error -->
+        <header>
+            <a href="https://kick.com/redhunllef">
+                <img src="redlogo.png" alt="Redhunllef Logo">
+            </a>
+            <h1>404</h1>
+        </header>
 
-    <!-- Main Section with Error Message and Link to Livestream -->
-    <main>
-        <h2>Oops! Page Not Found</h2>
-        <p>The page you are looking for doesn’t exist. You can visit Redhunllef’s official livestream instead.</p>
-        <a href="https://kick.com/redhunllef" class="button">Go to Redhunllef on Kick</a>
-    </main>
+        <!-- Main Section with Error Message and Link to Livestream -->
+        <main>
+            <h2>Oops! Page Not Found</h2>
+            <p>The page you are looking for doesn’t exist. You can visit Redhunllef’s official livestream instead.</p>
+            <a href="https://kick.com/redhunllef" class="button">Go to Redhunllef on Kick</a>
+        </main>
 
-    <!-- Footer with Credits -->
-    <footer>
-        <p>&copy; 2024 Redhunllef Livestream. All Rights Reserved.</p>
-        <p>Created by <a href="https://kick.com/gingrsnaps" target="_blank">GingrSnaps</a></p>
-    </footer>
+        <!-- Footer with Credits -->
+        <footer>
+            <p>&copy; 2024 Redhunllef Livestream. All Rights Reserved.</p>
+            <p>Created by <a href="https://kick.com/gingrsnaps" target="_blank">GingrSnaps</a></p>
+        </footer>
+    </div>
 
-    <!-- Star Movement Script for Background Animation -->
+    <!-- Star Movement Script for Desktop -->
     <script>
         // Starry Background Effect
         const starsContainer = document.getElementById('stars');
@@ -204,23 +235,17 @@
             stars.push(star);
         }
 
-        // Move stars around based on mouse movement for a parallax effect
-        window.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            stars.forEach(star => {
-                const x = (clientX - window.innerWidth / 2) / 75;
-                const y = (clientY - window.innerHeight / 2) / 75;
-                star.style.transform = `translate(${x}px, ${y}px)`;
+        // Enable mouse parallax for desktop only
+        if (window.innerWidth > 768) {
+            window.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                stars.forEach(star => {
+                    const x = (clientX - window.innerWidth / 2) / 75;
+                    const y = (clientY - window.innerHeight / 2) / 75;
+                    star.style.transform = `translate(${x}px, ${y}px)`;
+                });
             });
-        });
-
-        // Update star positions on window resize
-        window.addEventListener('resize', () => {
-            stars.forEach(star => {
-                star.style.top = Math.random() * window.innerHeight + 'px';
-                star.style.left = Math.random() * window.innerWidth + 'px';
-            });
-        });
+        }
     </script>
 
 </body>
