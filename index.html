@@ -196,18 +196,19 @@
         }
 
         /* --------------------------------------
-           Kick Iframe Styling (Smaller & top-right)
+           Kick Iframe Styling (Bottom-right)
         -------------------------------------- */
         #kick-iframe-container {
             position: absolute;
-            top: 20px;
+            bottom: 20px;
             right: 20px;
-            width: 400px;        /* narrower container for a smaller window */
+            width: 400px;
+            border: 2px solid #555;           /* Subtle dark border */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* A bit stronger shadow */
             background-color: #fff;
             overflow: hidden;
-            z-index: 9999;       /* on top of other elements */
+            z-index: 9999; /* On top of other elements */
         }
 
         #kick-iframe-header {
@@ -215,7 +216,7 @@
             padding: 8px;
             background-color: #202020;
             color: #fff;
-            border-radius: 10px 10px 0 0; /* only top corners */
+            border-radius: 10px 10px 0 0; /* Only top corners */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -233,10 +234,10 @@
 
         #kick-iframe {
             border: none;
-            border-radius: 0 0 10px 10px; /* only bottom corners */
+            border-radius: 0 0 10px 10px; /* Only bottom corners */
             display: block;
-            width: 400px;    /* match container width */
-            height: 225px;   /* 16:9 aspect ratio for 400px wide */
+            width: 400px;   /* Match container width */
+            height: 225px;  /* 16:9 aspect ratio at 400px wide */
         }
     </style>
 </head>
@@ -315,7 +316,7 @@
         <span>Kick Stream</span>
         <button id="kick-iframe-close">X</button>
       </div>
-      <!-- Using the iframe you provided, but resized -->
+      <!-- The resized iframe -->
       <iframe
         id="kick-iframe"
         src="https://player.kick.com/redhunllef"
@@ -331,6 +332,7 @@
         // Close button: hides the container
         const closeBtn = document.getElementById("kick-iframe-close");
         const container = document.getElementById("kick-iframe-container");
+
         closeBtn.addEventListener("click", function() {
           container.style.display = "none";
         });
