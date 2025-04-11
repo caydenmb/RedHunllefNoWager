@@ -199,15 +199,14 @@
            NEW: Kick Iframe Styling
         -------------------------------------- */
         #kick-iframe-container {
-            position: absolute; /* allows dragging around the screen */
-            top: 100px;         
-            left: 100px;        
-            width: 400px;       /* adjust as needed */
+            position: absolute;    /* Allows dragging */
+            top: 100px;
+            left: 100px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             background-color: #fff;
-            overflow: hidden;   /* keeps corners rounded for iframe */
-            z-index: 9999;      /* on top of most elements */
+            overflow: hidden;     /* Keeps corners rounded if iframe is bigger */
+            z-index: 9999;        /* On top of other elements */
         }
 
         #kick-iframe-header {
@@ -215,7 +214,7 @@
             padding: 8px;
             background-color: #202020;
             color: #fff;
-            border-radius: 10px 10px 0 0; /* only top corners */
+            border-radius: 10px 10px 0 0; /* Only top corners */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -231,11 +230,11 @@
             font-weight: bold;
         }
 
+        /* Removing fixed width/height in CSS to let HTML attributes apply. */
         #kick-iframe {
             border: none;
-            width: 100%;
-            height: 500px; /* adjust as needed */
-            border-radius: 0 0 10px 10px; /* only bottom corners */
+            border-radius: 0 0 10px 10px; /* Only bottom corners */
+            display: block;
         }
     </style>
 </head>
@@ -314,10 +313,15 @@
         <span>Kick Stream</span>
         <button id="kick-iframe-close">X</button>
       </div>
+      <!-- Using the iframe you provided -->
       <iframe
         id="kick-iframe"
-        src="https://kick.com/Redhunllef?embed=1"
-        allowfullscreen
+        src="https://player.kick.com/redhunllef"
+        height="720"
+        width="1280"
+        frameborder="0"
+        scrolling="no"
+        allowfullscreen="true"
       ></iframe>
     </div>
 
