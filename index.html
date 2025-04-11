@@ -1,364 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Redhunllef Livestream</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Redhunllef Livestream</title>
 
-    <!-- Favicon (Logo) -->
-    <link rel="icon" href="redlogo.png" type="image/png">
+  <!-- Favicon (Logo) -->
+  <link rel="icon" href="redlogo.png" type="image/png">
 
-    <!-- Google Fonts (Roboto for sleek typography) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts (Roboto for sleek typography) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Main Styles -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Body Styling for a Centered, Clean Design */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #3a3a3a; /* Dark grey background for contrast */
-            color: #f0f0f0; /* Light grey text for readability */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Ensure full-height */
-            text-align: center;
-            overflow-y: auto; /* Enable vertical scrolling */
-            padding: 15px; /* Padding for mobile screens */
-            position: relative; /* Relative positioning to control stars */
-        }
+    /* Body Styling for a Centered, Clean Design */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #3a3a3a; /* Dark grey background for contrast */
+      color: #f0f0f0;            /* Light grey text for readability */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;         /* Ensure full-height */
+      text-align: center;
+      overflow-y: auto;          /* Enable vertical scrolling */
+      padding: 15px;             /* Padding for mobile screens */
+      position: relative;        /* Relative positioning to control stars */
+    }
 
-        /* Container to wrap all content and center it vertically */
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Ensure full-height centering */
-        }
+    /* Container to wrap all content and center it vertically */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Ensure full-height centering */
+    }
 
-        /* Header with Logo Animation */
-        header {
-            margin-bottom: 50px; /* Space below the header */
-        }
+    /* Header with Logo Animation */
+    header {
+      margin-bottom: 50px; /* Space below the header */
+    }
 
-        /* Bounce Animation for the Logo */
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px); /* Slight bounce effect */
-            }
-        }
+    /* Bounce Animation for the Logo */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px); /* Slight bounce effect */
+      }
+    }
 
-        /* Styling for the Logo Image */
-        header img {
-            width: 225px; /* Adjusted size for prominence */
-            height: auto;
-            animation: bounce 0.285s infinite; /* Infinite loop for the bounce animation */
-            margin-bottom: 30px; /* Space between logo and content */
-        }
+    /* Styling for the Logo Image */
+    header img {
+      width: 225px; /* Adjusted size for prominence */
+      height: auto;
+      animation: bounce 0.285s infinite; /* Infinite loop for the bounce animation */
+      margin-bottom: 30px; /* Space between logo and content */
+    }
 
-        /* Styling for the Sponsor Message */
-        #sponsor-message {
-            font-size: 1.4rem;
-            color: #e0e0e0; /* Softer grey for better cohesion with background */
-            margin-bottom: 40px; /* Space below the message */
-            font-weight: 400; /* Medium weight for cleaner look */
-        }
+    /* Styling for the Sponsor Message */
+    #sponsor-message {
+      font-size: 1.4rem;
+      color: #e0e0e0; /* Softer grey for better cohesion with background */
+      margin-bottom: 40px; /* Space below the message */
+      font-weight: 400; /* Medium weight for cleaner look */
+    }
 
-        /* Flexbox Container for Buttons */
-        .button-container {
-            display: flex;
-            flex-wrap: wrap; /* Wrap buttons on smaller screens */
-            gap: 15px;
-            justify-content: center;
-        }
+    /* Flexbox Container for Buttons */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap; /* Wrap buttons on smaller screens */
+      gap: 15px;
+      justify-content: center;
+    }
 
-        /* Modern Button Styling */
-        .button {
-            padding: 12px 30px;
-            background-color: #ff2d2d; /* Currently set to a red color */
-            color: #000;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px; /* Slightly rounder corners for a modern look */
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            font-size: 1.1rem;
-            text-align: center;
-            max-width: 180px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        }
+    /* Modern Button Styling */
+    .button {
+      padding: 12px 30px;
+      background-color: #ff2d2d; /* Currently set to a red color */
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px; /* Slightly rounder corners for a modern look */
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      font-size: 1.1rem;
+      text-align: center;
+      max-width: 180px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
 
-        .button:hover {
-            background-color: #ff2d2d; /* Darken on hover or change as desired */
-            transform: scale(1.05);
-            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-        }
+    .button:hover {
+      background-color: #ff2d2d; /* Darken on hover or change as desired */
+      transform: scale(1.05);
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Footer Styling */
-        footer {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 0.8rem; /* Smaller footer text */
-            color: #888;
-        }
+    /* Footer Styling */
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.8rem; /* Smaller footer text */
+      color: #888;
+    }
 
-        footer a {
-            color: #53fc18; /* Kick Green */
-            text-decoration: none;
-        }
+    footer a {
+      color: #53fc18; /* Kick Green */
+      text-decoration: none;
+    }
 
-        footer a:hover {
-            text-decoration: underline; /* Underline on hover */
-        }
+    footer a:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
 
-        /* Star Background */
-        #stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Ensure stars are behind content */
-            overflow: hidden;
-        }
+    /* Star Background */
+    #stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure stars are behind content */
+      overflow: hidden;
+    }
 
-        /* Ensure stars cover full page including scroll area */
-        .stars-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            pointer-events: none; /* Prevent stars from being interactive */
-        }
+    /* Ensure stars cover full page including scroll area */
+    .stars-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      pointer-events: none; /* Prevent stars from being interactive */
+    }
 
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #ffffff; /* White stars for contrast */
-            border-radius: 50%; /* Circular stars */
-        }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #ffffff; /* White stars for contrast */
+      border-radius: 50%;  /* Circular stars */
+    }
 
-        /* Star Drift Animation for Mobile */
-        @keyframes drift {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            50% {
-                transform: translate(50px, 100px) scale(1.2); /* Slight scale and movement */
-            }
-            100% {
-                transform: translate(-50px, -100px) scale(1);
-            }
-        }
+    /* Star Drift Animation for Mobile */
+    @keyframes drift {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(50px, 100px) scale(1.2); /* Slight scale + movement */
+      }
+      100% {
+        transform: translate(-50px, -100px) scale(1);
+      }
+    }
 
-        /* Mobile-Specific Adjustments */
-        @media (max-width: 768px) {
-            header img {
-                width: 180px;
-            }
+    /* Mobile-Specific Adjustments */
+    @media (max-width: 768px) {
+      header img {
+        width: 180px;
+      }
 
-            #sponsor-message {
-                font-size: 1.2rem;
-            }
+      #sponsor-message {
+        font-size: 1.2rem;
+      }
 
-            .button-container {
-                flex-direction: column; /* Stack buttons vertically on mobile */
-                gap: 10px;
-            }
+      .button-container {
+        flex-direction: column; /* Stack buttons vertically on mobile */
+        gap: 10px;
+      }
 
-            .button {
-                font-size: 1rem;
-                padding: 10px 20px;
-                max-width: 100%;
-            }
+      .button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        max-width: 100%;
+      }
 
-            footer {
-                font-size: 0.75rem;
-            }
+      footer {
+        font-size: 0.75rem;
+      }
 
-            /* On mobile, stars automatically drift */
-            .star {
-                animation: drift 30s infinite linear;
-            }
-        }
+      /* On mobile, stars automatically drift */
+      .star {
+        animation: drift 30s infinite linear;
+      }
+    }
 
-        /* --------------------------------------
-           Kick Iframe Styling (Bottom-right)
-        -------------------------------------- */
-        #kick-iframe-container {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 400px;
-            border: 2px solid #555;           /* Subtle dark border */
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* A bit stronger shadow */
-            background-color: #fff;
-            overflow: hidden;
-            z-index: 9999; /* On top of other elements */
-        }
+    /* 
+      --------------------------------------
+      Kick Iframe Container (Fixed Size, 
+      Bottom Right, Modern Frame)
+      --------------------------------------
+    */
+    #kick-iframe-container {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 400px;
+      height: 265px; 
+      /* Enough height for 225px iframe + ~40px header */
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #2d2d2d; 
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      overflow: hidden; /* Ensure corners remain neatly rounded */
+      z-index: 9999;    /* Above other elements */
+    }
 
-        #kick-iframe-header {
-            cursor: move;
-            padding: 8px;
-            background-color: #202020;
-            color: #fff;
-            border-radius: 10px 10px 0 0; /* Only top corners */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    #kick-iframe-header {
+      cursor: move;
+      height: 40px;
+      background-color: #171717;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 8px; /* Slight horizontal padding */
+    }
 
-        #kick-iframe-close {
-            border: none;
-            background-color: #c0392b;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    #kick-iframe-close {
+      border: none;
+      background-color: #c0392b;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-        #kick-iframe {
-            border: none;
-            border-radius: 0 0 10px 10px; /* Only bottom corners */
-            display: block;
-            width: 400px;   /* Match container width */
-            height: 225px;  /* 16:9 aspect ratio at 400px wide */
-        }
-    </style>
+    #kick-iframe {
+      border: none;
+      border-radius: 0 0 10px 10px;
+      width: 100%;
+      height: calc(100% - 40px);
+      /* The iframe will occupy everything except the header */
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Star Background for Visual Appeal -->
-    <div id="stars">
-        <!-- Overlay to ensure stars cover entire page even when scrolling -->
-        <div class="stars-overlay"></div>
-    </div>
+  <!-- Star Background for Visual Appeal -->
+  <div id="stars">
+    <!-- Overlay to ensure stars cover entire page even when scrolling -->
+    <div class="stars-overlay"></div>
+  </div>
 
-    <!-- Container for centering content -->
-    <div class="container">
-        <!-- Header with Logo Linked to the Livestream Page -->
-        <header>
-            <a href="https://kick.com/redhunllef">
-                <img src="redlogo.png" alt="Redhunllef Logo">
-            </a>
-        </header>
+  <!-- Container for centering content -->
+  <div class="container">
+    <!-- Header with Logo Linked to the Livestream Page -->
+    <header>
+      <a href="https://kick.com/redhunllef">
+        <img src="redlogo.png" alt="Redhunllef Logo">
+      </a>
+    </header>
 
-        <!-- Main Section with Sponsor Message and Buttons -->
-        <main>
-            <div id="sponsor-message">
-                <p>Support Redhunllef by visiting his sponsors below. These amazing platforms help keep the stream alive.</p>
-            </div>
-
-            <!-- Flexbox Container for Buttons -->
-            <div class="button-container">
-                <a href="https://shuffle.com/?r=Red" class="button">Shuffle.com</a>
-                <a href="https://cases.gg/r/RED" class="button">Cases.gg</a>
-                <a href="https://clash.gg/r/RED" class="button">Clash.gg</a>
-                <a href="https://rain.gg/r/Hunllef" class="button">Rain.gg</a>
-            </div>
-        </main>
-
-        <!-- Footer with Credits -->
-        <footer>
-            <p>&copy; 2025 Redhunllef Livestream. All Rights Reserved.</p>
-            <p>Created by <a href="https://kick.com/gingrsnaps" target="_blank">GingrSnaps</a></p>
-        </footer>
-    </div>
-
-    <!-- Star Movement Script for Desktop -->
-    <script>
-        // Starry Background Effect
-        const starsContainer = document.querySelector('.stars-overlay');
-        const starsCount = 250;  // Number of stars
-        const stars = [];
-
-        // Create stars and position them randomly
-        for (let i = 0; i < starsCount; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.top = Math.random() * starsContainer.offsetHeight + 'px';
-            star.style.left = Math.random() * starsContainer.offsetWidth + 'px';
-            starsContainer.appendChild(star);
-            stars.push(star);
-        }
-
-        // Enable mouse parallax for desktop only
-        if (window.innerWidth > 768) {
-            window.addEventListener('mousemove', (e) => {
-                const { clientX, clientY } = e;
-                stars.forEach(star => {
-                    const x = (clientX - window.innerWidth / 2) / 75;
-                    const y = (clientY - window.innerHeight / 2) / 75;
-                    star.style.transform = `translate(${x}px, ${y}px)`;
-                });
-            });
-        }
-    </script>
-
-    <!-- Kick Iframe Container -->
-    <div id="kick-iframe-container">
-      <div id="kick-iframe-header">
-        <span>Kick Stream</span>
-        <button id="kick-iframe-close">X</button>
+    <!-- Main Section with Sponsor Message and Buttons -->
+    <main>
+      <div id="sponsor-message">
+        <p>Support Redhunllef by visiting his sponsors below. These amazing platforms help keep the stream alive.</p>
       </div>
-      <!-- The resized iframe -->
-      <iframe
-        id="kick-iframe"
-        src="https://player.kick.com/redhunllef"
-        frameborder="0"
-        scrolling="no"
-        allowfullscreen="true"
-      ></iframe>
+
+      <!-- Flexbox Container for Buttons -->
+      <div class="button-container">
+        <a href="https://shuffle.com/?r=Red" class="button">Shuffle.com</a>
+        <a href="https://cases.gg/r/RED" class="button">Cases.gg</a>
+        <a href="https://clash.gg/r/RED" class="button">Clash.gg</a>
+        <a href="https://rain.gg/r/Hunllef" class="button">Rain.gg</a>
+      </div>
+    </main>
+
+    <!-- Footer with Credits -->
+    <footer>
+      <p>&copy; 2025 Redhunllef Livestream. All Rights Reserved.</p>
+      <p>Created by <a href="https://kick.com/gingrsnaps" target="_blank">GingrSnaps</a></p>
+    </footer>
+  </div>
+
+  <!-- Star Movement Script for Desktop -->
+  <script>
+    // Starry Background Effect
+    const starsContainer = document.querySelector('.stars-overlay');
+    const starsCount = 250;  // Number of stars
+    const stars = [];
+
+    // Create stars and position them randomly
+    for (let i = 0; i < starsCount; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * starsContainer.offsetHeight + 'px';
+      star.style.left = Math.random() * starsContainer.offsetWidth + 'px';
+      starsContainer.appendChild(star);
+      stars.push(star);
+    }
+
+    // Enable mouse parallax for desktop only
+    if (window.innerWidth > 768) {
+      window.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        stars.forEach(star => {
+          const x = (clientX - window.innerWidth / 2) / 75;
+          const y = (clientY - window.innerHeight / 2) / 75;
+          star.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      });
+    }
+  </script>
+
+  <!-- Kick Iframe Container (Fixed Size, Modern Frame) -->
+  <div id="kick-iframe-container">
+    <div id="kick-iframe-header">
+      <span>Kick Stream</span>
+      <button id="kick-iframe-close">X</button>
     </div>
+    <!-- Using the iframe you provided -->
+    <iframe
+      id="kick-iframe"
+      src="https://player.kick.com/redhunllef"
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen="true"
+    ></iframe>
+  </div>
 
-    <!-- Kick Iframe Script (Draggable & Closable) -->
-    <script>
-      (function() {
-        // Close button: hides the container
-        const closeBtn = document.getElementById("kick-iframe-close");
-        const container = document.getElementById("kick-iframe-container");
+  <!-- Kick Iframe Script (Draggable & Closable) -->
+  <script>
+    (function() {
+      const closeBtn = document.getElementById("kick-iframe-close");
+      const container = document.getElementById("kick-iframe-container");
 
-        closeBtn.addEventListener("click", function() {
-          container.style.display = "none";
-        });
+      // Close button: hides the container
+      closeBtn.addEventListener("click", function() {
+        container.style.display = "none";
+      });
 
-        // Dragging functionality
-        const header = document.getElementById("kick-iframe-header");
-        let offsetX = 0, offsetY = 0;
-        let isDragging = false;
+      // Dragging functionality
+      const header = document.getElementById("kick-iframe-header");
+      let offsetX = 0, offsetY = 0;
+      let isDragging = false;
 
-        header.addEventListener("mousedown", function(e) {
-          isDragging = true;
-          // The distance between the top-left of container and the mouse pointer
-          offsetX = e.clientX - container.offsetLeft;
-          offsetY = e.clientY - container.offsetTop;
-        });
+      header.addEventListener("mousedown", function(e) {
+        isDragging = true;
+        // Distance between top-left of container and mouse pointer
+        offsetX = e.clientX - container.offsetLeft;
+        offsetY = e.clientY - container.offsetTop;
+      });
 
-        document.addEventListener("mousemove", function(e) {
-          if (!isDragging) return;
-          container.style.top = (e.clientY - offsetY) + "px";
-          container.style.left = (e.clientX - offsetX) + "px";
-        });
+      document.addEventListener("mousemove", function(e) {
+        if (!isDragging) return;
+        container.style.top = (e.clientY - offsetY) + "px";
+        container.style.left = (e.clientX - offsetX) + "px";
+      });
 
-        document.addEventListener("mouseup", function() {
-          isDragging = false;
-        });
-      })();
-    </script>
+      document.addEventListener("mouseup", function() {
+        isDragging = false;
+      });
+    })();
+  </script>
 </body>
 </html>
