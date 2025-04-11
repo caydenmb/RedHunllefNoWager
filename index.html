@@ -196,17 +196,18 @@
         }
 
         /* --------------------------------------
-           NEW: Kick Iframe Styling
+           Kick Iframe Styling (Smaller & top-right)
         -------------------------------------- */
         #kick-iframe-container {
-            position: absolute;    /* Allows dragging */
-            top: 100px;
-            left: 100px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 400px;        /* narrower container for a smaller window */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             background-color: #fff;
-            overflow: hidden;     /* Keeps corners rounded if iframe is bigger */
-            z-index: 9999;        /* On top of other elements */
+            overflow: hidden;
+            z-index: 9999;       /* on top of other elements */
         }
 
         #kick-iframe-header {
@@ -214,7 +215,7 @@
             padding: 8px;
             background-color: #202020;
             color: #fff;
-            border-radius: 10px 10px 0 0; /* Only top corners */
+            border-radius: 10px 10px 0 0; /* only top corners */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -230,11 +231,12 @@
             font-weight: bold;
         }
 
-        /* Removing fixed width/height in CSS to let HTML attributes apply. */
         #kick-iframe {
             border: none;
-            border-radius: 0 0 10px 10px; /* Only bottom corners */
+            border-radius: 0 0 10px 10px; /* only bottom corners */
             display: block;
+            width: 400px;    /* match container width */
+            height: 225px;   /* 16:9 aspect ratio for 400px wide */
         }
     </style>
 </head>
@@ -307,25 +309,23 @@
         }
     </script>
 
-    <!-- NEW: Kick Iframe Container -->
+    <!-- Kick Iframe Container -->
     <div id="kick-iframe-container">
       <div id="kick-iframe-header">
         <span>Kick Stream</span>
         <button id="kick-iframe-close">X</button>
       </div>
-      <!-- Using the iframe you provided -->
+      <!-- Using the iframe you provided, but resized -->
       <iframe
         id="kick-iframe"
         src="https://player.kick.com/redhunllef"
-        height="720"
-        width="1280"
         frameborder="0"
         scrolling="no"
         allowfullscreen="true"
       ></iframe>
     </div>
 
-    <!-- NEW: Kick Iframe Script -->
+    <!-- Kick Iframe Script (Draggable & Closable) -->
     <script>
       (function() {
         // Close button: hides the container
