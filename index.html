@@ -86,7 +86,7 @@
         /* Modern Button Styling */
         .button {
             padding: 12px 30px;
-            background-color: #ff2d2d; /* Kick Green to match brand colors */
+            background-color: #ff2d2d; /* Currently set to a red color */
             color: #000;
             font-weight: bold;
             text-decoration: none;
@@ -95,13 +95,13 @@
             font-size: 1.1rem;
             text-align: center;
             max-width: 180px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for a 3D effect */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
         .button:hover {
-            background-color: #ff2d2d; /* Darker green on hover */
-            transform: scale(1.05); /* Slightly enlarge on hover */
-            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow for more depth */
+            background-color: #ff2d2d; /* Darken on hover or change as desired */
+            transform: scale(1.05);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer Styling */
@@ -167,11 +167,11 @@
         /* Mobile-Specific Adjustments */
         @media (max-width: 768px) {
             header img {
-                width: 180px; /* Adjusted logo size for mobile */
+                width: 180px;
             }
 
             #sponsor-message {
-                font-size: 1.2rem; /* Adjusted font size for mobile */
+                font-size: 1.2rem;
             }
 
             .button-container {
@@ -180,19 +180,62 @@
             }
 
             .button {
-                font-size: 1rem; /* Adjust button font size for mobile */
-                padding: 10px 20px; /* Adjust padding for mobile */
-                max-width: 100%; /* Make buttons full-width on mobile */
+                font-size: 1rem;
+                padding: 10px 20px;
+                max-width: 100%;
             }
 
             footer {
-                font-size: 0.75rem; /* Smaller footer text for mobile */
+                font-size: 0.75rem;
             }
 
-            /* On mobile, stars will automatically drift */
+            /* On mobile, stars automatically drift */
             .star {
                 animation: drift 30s infinite linear;
             }
+        }
+
+        /* --------------------------------------
+           NEW: Kick Iframe Styling
+        -------------------------------------- */
+        #kick-iframe-container {
+            position: absolute; /* allows dragging around the screen */
+            top: 100px;         
+            left: 100px;        
+            width: 400px;       /* adjust as needed */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background-color: #fff;
+            overflow: hidden;   /* keeps corners rounded for iframe */
+            z-index: 9999;      /* on top of most elements */
+        }
+
+        #kick-iframe-header {
+            cursor: move;
+            padding: 8px;
+            background-color: #202020;
+            color: #fff;
+            border-radius: 10px 10px 0 0; /* only top corners */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #kick-iframe-close {
+            border: none;
+            background-color: #c0392b;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #kick-iframe {
+            border: none;
+            width: 100%;
+            height: 500px; /* adjust as needed */
+            border-radius: 0 0 10px 10px; /* only bottom corners */
         }
     </style>
 </head>
@@ -225,8 +268,6 @@
                 <a href="https://cases.gg/r/RED" class="button">Cases.gg</a>
                 <a href="https://clash.gg/r/RED" class="button">Clash.gg</a>
                 <a href="https://rain.gg/r/Hunllef" class="button">Rain.gg</a>
-                
-                
             </div>
         </main>
 
@@ -267,5 +308,51 @@
         }
     </script>
 
+    <!-- NEW: Kick Iframe Container -->
+    <div id="kick-iframe-container">
+      <div id="kick-iframe-header">
+        <span>Kick Stream</span>
+        <button id="kick-iframe-close">X</button>
+      </div>
+      <iframe
+        id="kick-iframe"
+        src="https://kick.com/Redhunllef?embed=1"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- NEW: Kick Iframe Script -->
+    <script>
+      (function() {
+        // Close button: hides the container
+        const closeBtn = document.getElementById("kick-iframe-close");
+        const container = document.getElementById("kick-iframe-container");
+        closeBtn.addEventListener("click", function() {
+          container.style.display = "none";
+        });
+
+        // Dragging functionality
+        const header = document.getElementById("kick-iframe-header");
+        let offsetX = 0, offsetY = 0;
+        let isDragging = false;
+
+        header.addEventListener("mousedown", function(e) {
+          isDragging = true;
+          // The distance between the top-left of container and the mouse pointer
+          offsetX = e.clientX - container.offsetLeft;
+          offsetY = e.clientY - container.offsetTop;
+        });
+
+        document.addEventListener("mousemove", function(e) {
+          if (!isDragging) return;
+          container.style.top = (e.clientY - offsetY) + "px";
+          container.style.left = (e.clientX - offsetX) + "px";
+        });
+
+        document.addEventListener("mouseup", function() {
+          isDragging = false;
+        });
+      })();
+    </script>
 </body>
 </html>
